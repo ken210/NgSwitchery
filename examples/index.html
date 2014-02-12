@@ -9,7 +9,17 @@
     <script src="ng-switchery-sample.js"></script>
 </head>
 <body ng-app="NgSwitcherySample">
-<input type="checkbox" class="js-switch" ui-switch checked />
-<input type="checkbox" class="js-switch" ui-switch="{color: '#E43B11', secondaryColor: '#F89279'}" checked />
+<div ng-init="myVar = true">
+	<p>
+		<input type="checkbox" ui-switch />
+	</p>
+	<p>
+		<input type="checkbox" ui-switch="{color: '#E43B11', secondaryColor: '#F89279'}" />
+	</p>
+	<p>
+		<input type="checkbox" switchery-var="myVar">
+	</p>
+	<p>{{myVar}}</p>
+</div>
 </body>
 </html>

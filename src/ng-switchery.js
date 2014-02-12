@@ -19,7 +19,9 @@ angular.module('NgSwitchery', [])
              * @param elem
              * @param attrs
              */
-
+             
+            var template = '<input ng-model="switcheryVar" />';
+             
             function linkSwitchery(scope, elem, attrs) {
 
                 var options;
@@ -31,12 +33,24 @@ angular.module('NgSwitchery', [])
                 }
 
                 $timeout(function () {
-                    var init = new $window.Switchery(elem[0], options);
+                    new $window.Switchery(elem[0], options);
                 }, 0);
+
+                elem.on('change', function () {
+                    scope.$apply(function () {
+                        scope.switcheryVar = elem[0].checked;
+                    });
+                });
             }
+
             return {
                 restrict: 'AE',
-                link: linkSwitchery
-            }
+                link: linkSwitchery,
+                template: template,
+                replace: true,
+                scope: {
+                    switcheryVar: '='
+                }
+            };
         }
     ]);

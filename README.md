@@ -20,12 +20,17 @@ angular.module('myModule', ['NgSwitchery']);
 
 Insert checkbox html
 ```html
-<input type="checkbox" class="js-switch" ui-switch checked />
+<input type="checkbox" ui-switch switchery-var="myVar" />
 ```
 
 Setting Options
 ```html
-<input type="checkbox" class="js-switch" ui-switch="{color: '#E43B11', secondaryColor: '#F89279'}" />
+<input type="checkbox" ui-switch="{color: '#E43B11', secondaryColor: '#F89279'}" />
+```
+
+Two-way data-bind
+```html
+<input type="checkbox" switchery-var="myVar" />
 ```
 
 
